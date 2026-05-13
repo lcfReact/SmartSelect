@@ -1,0 +1,2 @@
+# Force LF for shell scripts (avoid bash $'\r' on Linux after Windows edits)
+*.sh text eol=lf
