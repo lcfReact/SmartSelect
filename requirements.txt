@@ -1,3 +1,4 @@
+# SmartSelect 桌面版依赖（PyQt5 GUI）
 PyQt5>=5.15.0
 akshare>=1.10.0
 pandas>=2.0.0
