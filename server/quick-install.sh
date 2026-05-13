@@ -2,6 +2,11 @@
 # SmartSelect quick install (OpenCloudOS / CentOS / Ubuntu)
 # Syncs repo with: git fetch + reset --hard (avoids local-change merge errors)
 set -e
+SELF="${BASH_SOURCE[0]}"
+if command -v grep &>/dev/null && grep -q $'\r' "$SELF" 2>/dev/null; then
+    sed -i 's/\r$//' "$SELF"
+    exec /bin/bash "$SELF" "$@"
+fi
 
 DOMAIN="codecraftsure.com"
 APP_DIR="/opt/smartselect"
