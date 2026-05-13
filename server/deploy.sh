@@ -84,8 +84,9 @@ if [ ! -x "$VENV_DIR/bin/python" ]; then
         sudo -u "$APP_USER" $PYTHON_BIN -m venv "$VENV_DIR"
     }
 fi
-sudo -u "$APP_USER" "$VENV_DIR/bin/pip" install --upgrade pip -q
-sudo -u "$APP_USER" "$VENV_DIR/bin/pip" install -r requirements-server.txt -q
+PIP_MIRROR="-i https://mirrors.tencent.com/pypi/simple/ --trusted-host mirrors.tencent.com"
+sudo -u "$APP_USER" "$VENV_DIR/bin/pip" install --upgrade pip $PIP_MIRROR -q
+sudo -u "$APP_USER" "$VENV_DIR/bin/pip" install -r requirements-server.txt $PIP_MIRROR
 
 echo "[5/8] database..."
 sudo -u "$APP_USER" "$VENV_DIR/bin/python" -c "
